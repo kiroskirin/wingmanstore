@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5E2A09662832A16900F0963A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2A09652832A16900F0963A /* AppDelegate.swift */; };
-		5E2A09682832A16900F0963A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2A09672832A16900F0963A /* SceneDelegate.swift */; };
 		5E2A096A2832A16900F0963A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2A09692832A16900F0963A /* ViewController.swift */; };
 		5E2A096D2832A16A00F0963A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E2A096B2832A16A00F0963A /* Main.storyboard */; };
 		5E2A096F2832A16E00F0963A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E2A096E2832A16E00F0963A /* Assets.xcassets */; };
@@ -38,7 +37,6 @@
 /* Begin PBXFileReference section */
 		5E2A09622832A16900F0963A /* Wingman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wingman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E2A09652832A16900F0963A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5E2A09672832A16900F0963A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5E2A09692832A16900F0963A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5E2A096C2832A16A00F0963A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5E2A096E2832A16E00F0963A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -100,7 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				5E2A09652832A16900F0963A /* AppDelegate.swift */,
-				5E2A09672832A16900F0963A /* SceneDelegate.swift */,
 				5E2A09692832A16900F0963A /* ViewController.swift */,
 				5E2A096B2832A16A00F0963A /* Main.storyboard */,
 				5E2A096E2832A16E00F0963A /* Assets.xcassets */,
@@ -260,7 +257,6 @@
 			files = (
 				5E2A096A2832A16900F0963A /* ViewController.swift in Sources */,
 				5E2A09662832A16900F0963A /* AppDelegate.swift in Sources */,
-				5E2A09682832A16900F0963A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,7 +362,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -420,7 +416,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -454,7 +450,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -482,7 +478,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
