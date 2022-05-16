@@ -9,6 +9,7 @@
 //  https://github.com/HelmMobile/clean-swift-templates
 
 import UIKit
+import SVProgressHUD
 
 protocol WMStoreViewControllerInput {
     
@@ -56,10 +57,14 @@ class WMStoreViewController: UIViewController, WMStoreViewControllerInput {
         super.viewWillAppear(animated)
         
         self.group = DispatchGroup()
+        
+        SVProgressHUD.show()
+        
         self.getStoreData()
         self.getProductList()
         
         self.group?.notify(queue: .main, execute: {
+            SVProgressHUD.dismiss()
             self.tableView.reloadData()
         })
     }
