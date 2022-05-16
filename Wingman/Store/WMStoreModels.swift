@@ -14,6 +14,7 @@ import Foundation
 
 struct WMStoreScene {
     
+    // MARK: Store
     struct GetStore {
         
         struct Request {
@@ -44,8 +45,33 @@ struct WMStoreScene {
             }
         }
     }
+    
+    // MARK: Product
+    
+    struct GetProductList {
+        
+        struct Request {
+            
+        }
+        
+        struct Response {
+            let result: GetProductListResult
+        }
+        
+        struct ViewModel {
+            let status: Status
+            
+            enum Status {
+                case success(model: Model)
+                case failure(title: String?, message: String?)
+            }
+            
+            struct Model {
+                let data: [Product]?
+            }
+        }
+    }
 }
-
 
 typealias StoreData = WMStoreScene.GetStore.ViewModel.Model.StoreData
 extension StoreData {
@@ -57,3 +83,4 @@ extension StoreData {
         return String(time.prefix(5))
     }
 }
+

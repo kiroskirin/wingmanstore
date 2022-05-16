@@ -14,6 +14,7 @@ protocol WMStorePresenterInput {
 
 protocol WMStorePresenterOutput: AnyObject {
     func presentGetStore(viewModel: WMStoreScene.GetStore.ViewModel)
+    func presentGetProductList(viewModel: WMStoreScene.GetProductList.ViewModel)
 }
 
 class WMStorePresenter: WMStorePresenterInput {
@@ -35,6 +36,18 @@ class WMStorePresenter: WMStorePresenterInput {
         case .failure(let error):
             let viewModel = WMStoreScene.GetStore.ViewModel(status: .failure(title: error?.title, message: error?.message))
             self.output?.presentGetStore(viewModel: viewModel)
+        }
+    }
+    
+    func presentGetProductList(response: WMStoreScene.GetProductList.Response) {
+        switch response.result {
+        case .success(let resp):
+            let viewModel = WMStoreScene.GetProductList.ViewModel(status: .success(model: .init(data: resp?.data)))
+            self.output?.presentGetProductList(viewModel: viewModel)
+            
+        case .failure(let error):
+            let viewModel = WMStoreScene.GetProductList.ViewModel(status: .failure(title: error?.title, message: error?.message))
+            self.output?.presentGetProductList(viewModel: viewModel)
         }
     }
 }

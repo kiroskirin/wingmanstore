@@ -16,6 +16,7 @@ protocol WMStoreInteractorInput {
 
 protocol WMStoreInteractorOutput {
     func presentGetStore(response: WMStoreScene.GetStore.Response)
+    func presentGetProductList(response: WMStoreScene.GetProductList.Response)
 }
 
 protocol WMStoreDataSource {
@@ -33,10 +34,16 @@ class WMStoreInteractor: WMStoreInteractorInput, WMStoreDataSource, WMStoreDataD
     // MARK: Business logic
     
     func GetStore(request: WMStoreScene.GetStore.Request) {
-        
         WMServiceWorker().getStore { result in
             let response = WMStoreScene.GetStore.Response(result: result)
             self.output?.presentGetStore(response: response)
+        }
+    }
+    
+    func GetProductList(request: WMStoreScene.GetProductList.Request) {
+        WMServiceWorker().getProductList { result in
+            let response = WMStoreScene.GetProductList.Response(result: result)
+            self.output?.presentGetProductList(response: response)
         }
     }
 }

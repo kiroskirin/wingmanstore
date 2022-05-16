@@ -29,6 +29,10 @@
 		5ECAD34E2832BDD700E4EC18 /* WMViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAD34D2832BDD700E4EC18 /* WMViewProtocol.swift */; };
 		5ECAD3502832C89700E4EC18 /* WMStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAD34F2832C89700E4EC18 /* WMStatusCode.swift */; };
 		5ECAD3532832D3E500E4EC18 /* WMExtensionString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAD3522832D3E500E4EC18 /* WMExtensionString.swift */; };
+		5ECAD3572832DDE900E4EC18 /* ProductViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAD3552832DDE900E4EC18 /* ProductViewCell.swift */; };
+		5ECAD3582832DDE900E4EC18 /* ProductViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ECAD3562832DDE900E4EC18 /* ProductViewCell.xib */; };
+		5ECAD35B2832E83200E4EC18 /* StoreInfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAD3592832E83200E4EC18 /* StoreInfoViewCell.swift */; };
+		5ECAD35C2832E83200E4EC18 /* StoreInfoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ECAD35A2832E83200E4EC18 /* StoreInfoViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +77,10 @@
 		5ECAD34D2832BDD700E4EC18 /* WMViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WMViewProtocol.swift; sourceTree = "<group>"; };
 		5ECAD34F2832C89700E4EC18 /* WMStatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WMStatusCode.swift; sourceTree = "<group>"; };
 		5ECAD3522832D3E500E4EC18 /* WMExtensionString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WMExtensionString.swift; sourceTree = "<group>"; };
+		5ECAD3552832DDE900E4EC18 /* ProductViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewCell.swift; sourceTree = "<group>"; };
+		5ECAD3562832DDE900E4EC18 /* ProductViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductViewCell.xib; sourceTree = "<group>"; };
+		5ECAD3592832E83200E4EC18 /* StoreInfoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoViewCell.swift; sourceTree = "<group>"; };
+		5ECAD35A2832E83200E4EC18 /* StoreInfoViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoreInfoViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +188,7 @@
 		5E2A09AC2832A97400F0963A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5ECAD3542832DDD100E4EC18 /* Cells */,
 				5E2A096B2832A16A00F0963A /* Main.storyboard */,
 			);
 			path = View;
@@ -194,6 +203,17 @@
 				5ECAD3472832B76300E4EC18 /* WMStoreResponse.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		5ECAD3542832DDD100E4EC18 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5ECAD3552832DDE900E4EC18 /* ProductViewCell.swift */,
+				5ECAD3562832DDE900E4EC18 /* ProductViewCell.xib */,
+				5ECAD3592832E83200E4EC18 /* StoreInfoViewCell.swift */,
+				5ECAD35A2832E83200E4EC18 /* StoreInfoViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,8 +328,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5ECAD3582832DDE900E4EC18 /* ProductViewCell.xib in Resources */,
 				5E2A09722832A16E00F0963A /* LaunchScreen.storyboard in Resources */,
 				5E2A096F2832A16E00F0963A /* Assets.xcassets in Resources */,
+				5ECAD35C2832E83200E4EC18 /* StoreInfoViewCell.xib in Resources */,
 				5E2A096D2832A16A00F0963A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,8 +363,10 @@
 				5E2A09B32832A9FF00F0963A /* WMStorePresenter.swift in Sources */,
 				5E2A09B62832A9FF00F0963A /* WMStoreViewController.swift in Sources */,
 				5E2A09AB2832A96900F0963A /* WMServiceWorker.swift in Sources */,
+				5ECAD35B2832E83200E4EC18 /* StoreInfoViewCell.swift in Sources */,
 				5ECAD34C2832BCBF00E4EC18 /* WMAppManager.swift in Sources */,
 				5E2A09B52832A9FF00F0963A /* WMStoreModels.swift in Sources */,
+				5ECAD3572832DDE900E4EC18 /* ProductViewCell.swift in Sources */,
 				5E2A09B72832A9FF00F0963A /* WMStoreInteractor.swift in Sources */,
 				5ECAD3482832B76300E4EC18 /* WMStoreResponse.swift in Sources */,
 				5ECAD34E2832BDD700E4EC18 /* WMViewProtocol.swift in Sources */,

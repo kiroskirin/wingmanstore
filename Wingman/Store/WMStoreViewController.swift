@@ -16,14 +16,30 @@ protocol WMStoreViewControllerInput {
 
 protocol WMStoreViewControllerOutput {
     func GetStore(request: WMStoreScene.GetStore.Request)
+    func GetProductList(request: WMStoreScene.GetProductList.Request)
+}
+
+enum WMStoreSection: Int, CaseIterable {
+    case storeInfo = 0
+    case productList
 }
 
 class WMStoreViewController: UIViewController, WMStoreViewControllerInput {
+    
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            self.configTableView()
+        }
+    }
     
     var output: WMStoreViewControllerOutput?
     var router: WMStoreRouter?
     
     // MARK: Object lifecycle
+    
+    private var group: DispatchGroup?
+    private(set) var productDataSource: [Product] = []
+    private(set) var storeData: StoreData?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,27 +52,105 @@ class WMStoreViewController: UIViewController, WMStoreViewControllerInput {
         super.viewDidLoad()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        self.group = DispatchGroup()
         self.getStoreData()
+        self.getProductList()
+        
+        self.group?.notify(queue: .main, execute: {
+            self.tableView.reloadData()
+        })
+    }
+    
+    private func configTableView() {
+        self.tableView.register(ProductViewCell.nib, forCellReuseIdentifier: ProductViewCell.identifier)
+        self.tableView.register(StoreInfoViewCell.nib, forCellReuseIdentifier: StoreInfoViewCell.identifier)
+        
+        self.tableView.dataSource = self
+        
+        self.tableView.estimatedRowHeight = 145
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.tableFooterView = UIView()
     }
     
     // MARK: Requests
     
     func getStoreData() {
+        self.group?.enter()
         let request = WMStoreScene.GetStore.Request()
         self.output?.GetStore(request: request)
     }
     
+    func getProductList() {
+        self.group?.enter()
+        let request = WMStoreScene.GetProductList.Request()
+        self.output?.GetProductList(request: request)
+    }
+    
     // MARK: Display logic
+    
     func presentGetStore(viewModel: WMStoreScene.GetStore.ViewModel) {
         switch viewModel.status {
         case .success(let model):
-            print(model.data?.getDisplayText(model.data?.openingTime))
-            print(model.data?.getDisplayText(model.data?.closingTime))
+            self.storeData = model.data
+            self.group?.leave()
         case .failure(let title, let message):
-            print(title, message)
+            print(title ?? "", message ?? "")
+            self.group?.leave()
+        }
+    }
+    
+    func presentGetProductList(viewModel: WMStoreScene.GetProductList.ViewModel) {
+        switch viewModel.status {
+        case .success(let model):
+            self.productDataSource = model.data ?? []
+            self.group?.leave()
+        case .failure(let title, let message):
+            print(title ?? "" , message ?? "")
+            self.group?.leave()
+        }
+    }
+}
+
+extension WMStoreViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return WMStoreSection.allCases.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch WMStoreSection(rawValue: section) {
+        case .storeInfo:
+            return self.storeData != nil ? 1 : 0
+        case .productList:
+            return self.productDataSource.count
+        default:
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        switch WMStoreSection(rawValue: indexPath.section) {
+        case .storeInfo:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: StoreInfoViewCell.identifier, for: indexPath) as? StoreInfoViewCell else {
+                return UITableViewCell()
+            }
+            
+            cell.setStoreInfo(self.storeData)
+            return cell
+            
+        case .productList:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ProductViewCell.identifier, for: indexPath) as? ProductViewCell else {
+                return UITableViewCell()
+            }
+            
+            cell.setProductInfo(self.productDataSource[indexPath.row])
+            return cell
+            
+        default:
+            return UITableViewCell()
         }
     }
 }
