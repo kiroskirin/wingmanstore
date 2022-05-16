@@ -1,0 +1,100 @@
+//
+//  StoreResponse.swift
+//  Wingman
+//
+//  Created by Kraisorn Soisakhu on 5/16/22.
+//
+
+import Foundation
+
+struct StoreResponse: Codable {
+    let data: StoreInfo?
+}
+
+struct ProductListResponse: Codable {
+    let data: [Product]?
+}
+
+struct ServiceResponse: Codable {
+    let title: String?
+    let message: String?
+}
+
+// MARK: Store
+
+struct StoreInfo: Codable {
+    let name: String?
+    let rating: Double?
+    let openingTime: String?
+    let closingTime: String?
+    
+    private enum CodingKeys: String, CodingKey {
+        case name, rating
+        case openingTime = "openingTime"
+        case closingTime = "closingTime"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        
+        do {
+            self.name = try values.decodeIfPresent(String.self, forKey: .name)
+        } catch {
+            self.name = nil
+        }
+        
+        do {
+            self.rating = try values.decodeIfPresent(Double.self, forKey: .rating)
+        } catch {
+            self.rating = 0.0
+        }
+        
+        do {
+            self.openingTime = try values.decodeIfPresent(String.self, forKey: .openingTime)
+        } catch {
+            self.openingTime = nil
+        }
+        
+        do {
+            self.closingTime = try values.decodeIfPresent(String.self, forKey: .closingTime)
+        } catch {
+            self.closingTime = nil
+        }
+    }
+}
+
+// MARK: Product
+
+struct Product: Codable {
+    let name: String?
+    let price: Int?
+    let imageURL: URL?
+    
+    private enum CodingKeys: String, CodingKey {
+        case name
+        case price
+        case imageURL = "imageUrl"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        
+        do {
+            self.name = try values.decodeIfPresent(String.self, forKey: .name)
+        } catch {
+            self.name = nil
+        }
+        
+        do {
+            self.price = try values.decodeIfPresent(Int.self, forKey: .price)
+        } catch {
+            self.price = 0
+        }
+        
+        do {
+            self.imageURL = try values.decodeIfPresent(URL.self, forKey: .imageURL)
+        } catch {
+            self.imageURL = nil
+        }
+    }
+}
