@@ -33,6 +33,7 @@
 		5ECAD3582832DDE900E4EC18 /* ProductViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ECAD3562832DDE900E4EC18 /* ProductViewCell.xib */; };
 		5ECAD35B2832E83200E4EC18 /* StoreInfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAD3592832E83200E4EC18 /* StoreInfoViewCell.swift */; };
 		5ECAD35C2832E83200E4EC18 /* StoreInfoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ECAD35A2832E83200E4EC18 /* StoreInfoViewCell.xib */; };
+		5ECAD35E2832ED7100E4EC18 /* StoreModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAD35D2832ED7100E4EC18 /* StoreModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		5ECAD3562832DDE900E4EC18 /* ProductViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductViewCell.xib; sourceTree = "<group>"; };
 		5ECAD3592832E83200E4EC18 /* StoreInfoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoViewCell.swift; sourceTree = "<group>"; };
 		5ECAD35A2832E83200E4EC18 /* StoreInfoViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoreInfoViewCell.xib; sourceTree = "<group>"; };
+		5ECAD35D2832ED7100E4EC18 /* StoreModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				5E2A097C2832A16F00F0963A /* WingmanTests.swift */,
+				5ECAD35D2832ED7100E4EC18 /* StoreModelTests.swift */,
 			);
 			path = WingmanTests;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E2A097D2832A16F00F0963A /* WingmanTests.swift in Sources */,
+				5ECAD35E2832ED7100E4EC18 /* StoreModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
