@@ -30,6 +30,7 @@ class WMStoreViewController: UIViewController, WMStoreViewControllerInput {
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             self.configTableView()
+            self.configRefreshControl()
         }
     }
     
@@ -41,6 +42,8 @@ class WMStoreViewController: UIViewController, WMStoreViewControllerInput {
     private var group: DispatchGroup?
     private(set) var productDataSource: [Product] = []
     private(set) var storeData: StoreData?
+    
+    private let refreshControl = UIRefreshControl()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -76,6 +79,16 @@ class WMStoreViewController: UIViewController, WMStoreViewControllerInput {
         self.tableView.tableFooterView = UIView()
     }
     
+    private func configRefreshControl() {
+        self.refreshControl.addTarget(self, action: #selector(self.doRefreshData), for: .valueChanged)
+        self.tableView.refreshControl = self.refreshControl
+    }
+    
+    @objc func doRefreshData() {
+        WMOrderManager.shared.clearOrder()
+        self.getAllData()
+    }
+    
     // MARK: Requests
     
     func getAllData() {
@@ -88,6 +101,7 @@ class WMStoreViewController: UIViewController, WMStoreViewControllerInput {
         
         self.group?.notify(queue: .main, execute: {
             SVProgressHUD.dismiss()
+            self.refreshControl.endRefreshing()
             self.tableView.reloadData()
         })
     }
@@ -108,7 +122,7 @@ class WMStoreViewController: UIViewController, WMStoreViewControllerInput {
     @IBAction func doCheckout(_ sender: UIButton) {
         
         guard !WMOrderManager.shared.listOrders.isEmpty else {
-            print("---no orders---")
+            self.showAlert("Store", message: "Please add product to your order")
             return
         }
         
@@ -123,7 +137,7 @@ class WMStoreViewController: UIViewController, WMStoreViewControllerInput {
             self.storeData = model.data
             self.group?.leave()
         case .failure(let title, let message):
-            print(title ?? "", message ?? "")
+            self.showAlert(title, message: message)
             self.group?.leave()
         }
     }
@@ -134,7 +148,7 @@ class WMStoreViewController: UIViewController, WMStoreViewControllerInput {
             self.productDataSource = model.data ?? []
             self.group?.leave()
         case .failure(let title, let message):
-            print(title ?? "" , message ?? "")
+            self.showAlert(title, message: message)
             self.group?.leave()
         }
     }
@@ -148,7 +162,7 @@ extension WMStoreViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch WMStoreSection(rawValue: section) {
         case .storeInfo:
-            return self.storeData != nil ? 1 : 0
+            return 1
         case .productList:
             return self.productDataSource.count
         default:

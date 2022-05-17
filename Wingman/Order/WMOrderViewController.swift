@@ -78,7 +78,7 @@ class WMOrderViewController: UIViewController, WMOrderViewControllerInput {
     // MARK: Requests
     func requestConfirmOrder() {
         guard let address = self.orderAddress?.trimmingCharacters(in: .whitespacesAndNewlines), !address.isEmpty else {
-            print("---please enter address--")
+            self.showAlert("Order", message: "Please enter your address")
             return
         }
         
@@ -97,7 +97,7 @@ class WMOrderViewController: UIViewController, WMOrderViewControllerInput {
             self.router?.navigateToOrderSuccess()
             
         case .failure(let title, let message):
-            print(title ?? "", message ?? "")
+            self.showAlert(title, message: message)
         }
     }
 }

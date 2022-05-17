@@ -24,6 +24,7 @@
 		5E2A09B72832A9FF00F0963A /* WMStoreInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2A09B12832A9FF00F0963A /* WMStoreInteractor.swift */; };
 		5E2A09B82832A9FF00F0963A /* WMStoreConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2A09B22832A9FF00F0963A /* WMStoreConfigurator.swift */; };
 		5EA7C3872834302A008D165B /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5EA7C3862834302A008D165B /* IQKeyboardManagerSwift */; };
+		5EA7C38928343797008D165B /* WMExtensionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA7C38828343797008D165B /* WMExtensionUIViewController.swift */; };
 		5ECAD3482832B76300E4EC18 /* WMStoreResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAD3472832B76300E4EC18 /* WMStoreResponse.swift */; };
 		5ECAD34A2832BA0600E4EC18 /* WMAPIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAD3492832BA0600E4EC18 /* WMAPIEndpoint.swift */; };
 		5ECAD34C2832BCBF00E4EC18 /* WMAppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAD34B2832BCBF00E4EC18 /* WMAppManager.swift */; };
@@ -94,6 +95,7 @@
 		5E2A09B02832A9FF00F0963A /* WMStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WMStoreViewController.swift; sourceTree = "<group>"; };
 		5E2A09B12832A9FF00F0963A /* WMStoreInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WMStoreInteractor.swift; sourceTree = "<group>"; };
 		5E2A09B22832A9FF00F0963A /* WMStoreConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WMStoreConfigurator.swift; sourceTree = "<group>"; };
+		5EA7C38828343797008D165B /* WMExtensionUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WMExtensionUIViewController.swift; sourceTree = "<group>"; };
 		5ECAD3472832B76300E4EC18 /* WMStoreResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WMStoreResponse.swift; sourceTree = "<group>"; };
 		5ECAD3492832BA0600E4EC18 /* WMAPIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WMAPIEndpoint.swift; sourceTree = "<group>"; };
 		5ECAD34B2832BCBF00E4EC18 /* WMAppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WMAppManager.swift; sourceTree = "<group>"; };
@@ -181,9 +183,9 @@
 			children = (
 				5E2A09652832A16900F0963A /* AppDelegate.swift */,
 				5ECAD34B2832BCBF00E4EC18 /* WMAppManager.swift */,
-				5ECAD3522832D3E500E4EC18 /* WMExtensionString.swift */,
 				5ECAD34D2832BDD700E4EC18 /* WMViewProtocol.swift */,
 				5E2A096E2832A16E00F0963A /* Assets.xcassets */,
+				5EA7C38A283437A9008D165B /* Extensions */,
 				5ECAD37F283403CD00E4EC18 /* Manager */,
 				5ECAD35F2833E67100E4EC18 /* Order */,
 				5ECAD3512832CBD100E4EC18 /* Services */,
@@ -242,6 +244,15 @@
 				5E2A096B2832A16A00F0963A /* Main.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		5EA7C38A283437A9008D165B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5EA7C38828343797008D165B /* WMExtensionUIViewController.swift */,
+				5ECAD3522832D3E500E4EC18 /* WMExtensionString.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		5ECAD3512832CBD100E4EC18 /* Services */ = {
@@ -480,6 +491,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EA7C38928343797008D165B /* WMExtensionUIViewController.swift in Sources */,
 				5E2A09B82832A9FF00F0963A /* WMStoreConfigurator.swift in Sources */,
 				5ECAD3752833F50800E4EC18 /* WMOrderSuccessPresenter.swift in Sources */,
 				5ECAD37A2833F50800E4EC18 /* WMOrderSuccessConfigurator.swift in Sources */,
