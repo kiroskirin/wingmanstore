@@ -14,12 +14,12 @@ protocol WMOrderRouterInput {
     
 }
 
-protocol WMOrderRouterDataSource: class {
+protocol WMOrderRouterDataSource: AnyObject {
     
 }
 
-protocol WMOrderRouterDataDestination: class {
-    
+protocol WMOrderRouterDataDestination: AnyObject {
+    var selectProduct: [Product] { get set }
 }
 
 class WMOrderRouter: WMOrderRouterInput {
@@ -35,6 +35,9 @@ class WMOrderRouter: WMOrderRouterInput {
     }
     
     // MARK: Navigation
+    func navigateToOrderSuccess() {
+        
+    }
     
     // MARK: Communication
     

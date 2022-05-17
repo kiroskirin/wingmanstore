@@ -15,7 +15,7 @@ protocol WMOrderViewControllerInput {
 }
 
 protocol WMOrderViewControllerOutput {
-    
+    func confirmOrder(request: WMOrderScene.ConfirmOrder.Request)
 }
 
 class WMOrderViewController: UIViewController, WMOrderViewControllerInput {
@@ -34,13 +34,30 @@ class WMOrderViewController: UIViewController, WMOrderViewControllerInput {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
+    
+    // MARK: Actions
+    @IBAction func doConfirmOrder(_ sender: UIButton) {
+        self.requestConfirmOrder()
     }
     
     // MARK: Requests
-    
+    func requestConfirmOrder() {
+        let request = WMOrderScene.ConfirmOrder.Request(address: "abc")
+        self.output?.confirmOrder(request: request)
+    }
     
     // MARK: Display logic
-    
+    func displayConfirmOrder(viewModel: WMOrderScene.ConfirmOrder.ViewModel) {
+        switch viewModel.status {
+        case .success:
+            self.router?.navigateToOrderSuccess()
+            
+        case .failure(let title, let message):
+            print(title ?? "", message ?? "")
+        }
+    }
 }
 
 //This should be on configurator but for some reason storyboard doesn't detect ViewController's name if placed there

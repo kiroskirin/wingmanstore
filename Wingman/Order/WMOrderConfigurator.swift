@@ -16,6 +16,7 @@ extension WMOrderInteractor: WMOrderViewControllerOutput, WMOrderRouterDataSourc
 }
 
 extension WMOrderPresenter: WMOrderInteractorOutput {
+    
 }
 
 class WMOrderConfigurator {

@@ -12,8 +12,8 @@ protocol WMOrderPresenterInput {
     
 }
 
-protocol WMOrderPresenterOutput: class {
-    
+protocol WMOrderPresenterOutput: AnyObject {
+    func displayConfirmOrder(viewModel: WMOrderScene.ConfirmOrder.ViewModel)
 }
 
 class WMOrderPresenter: WMOrderPresenterInput {
@@ -21,5 +21,15 @@ class WMOrderPresenter: WMOrderPresenterInput {
     weak var output: WMOrderPresenterOutput?
     
     // MARK: Presentation logic
-    
+    func presentConfirmOrder(response: WMOrderScene.ConfirmOrder.Response) {
+        switch response.result {
+        case .success:
+            let viewModel = WMOrderScene.ConfirmOrder.ViewModel.init(status: .success)
+            self.output?.displayConfirmOrder(viewModel: viewModel)
+            
+        case .failure(let error):
+            let viewModel = WMOrderScene.ConfirmOrder.ViewModel.init(status: .failure(title: error?.title, message: error?.message))
+            self.output?.displayConfirmOrder(viewModel: viewModel)
+        }
+    }
 }

@@ -51,10 +51,6 @@ class WMStoreViewController: UIViewController, WMStoreViewControllerInput {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
         self.group = DispatchGroup()
         
@@ -92,6 +88,11 @@ class WMStoreViewController: UIViewController, WMStoreViewControllerInput {
         self.group?.enter()
         let request = WMStoreScene.GetProductList.Request()
         self.output?.GetProductList(request: request)
+    }
+    
+    // MARK: Actions
+    @IBAction func doCheckout(_ sender: UIButton) {
+        self.router?.navigateToOrder()
     }
     
     // MARK: Display logic

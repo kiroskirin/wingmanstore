@@ -11,5 +11,23 @@
 //  Type "usecase" for some magic!
 
 struct WMOrderScene {
-    
+    struct ConfirmOrder {
+        
+        struct Request {
+            let address: String
+        }
+        
+        struct Response {
+            let result: ConfirmOrderResult
+        }
+        
+        struct ViewModel {
+            let status: Status
+            
+            enum Status {
+                case success
+                case failure(title: String?, message: String?)
+            }
+        }
+    }
 }

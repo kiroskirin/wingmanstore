@@ -35,6 +35,15 @@ class WMStoreRouter: WMStoreRouterInput {
     }
     
     // MARK: Navigation
+    func navigateToOrder() {
+        guard let vc: WMOrderViewController = UIStoryboard(name: "Order", bundle: nil).instantiateViewController(withIdentifier: "WMOrderViewController") as? WMOrderViewController else {
+            return
+        }
+        vc.title = "Confirm Order"
+        vc.router?.dataDestination.selectProduct = viewController.productDataSource
+        
+        self.viewController.navigationController?.pushViewController(vc, animated: true)
+    }
     
     // MARK: Communication
     

@@ -22,9 +22,17 @@ enum GetProductListResult {
 
 typealias GetProductListCompletionHandler = (GetProductListResult) -> Void
 
+enum ConfirmOrderResult {
+    case success
+    case failure(error: ServiceResponse?)
+}
+
+typealias ConfirmOrderCompletionHandler = (ConfirmOrderResult) -> Void
+
 protocol StoreWorkerDelegate: AnyObject {
     func getStore(_ completion: @escaping GetStoreCompletionHandler)
     func getProductList(_ completion: @escaping GetProductListCompletionHandler)
+    func confirmOrder(_ products: [[String: Any]], order_address: String, _ completion: @escaping ConfirmOrderCompletionHandler)
 }
 
 /// WM Service Worker
@@ -85,6 +93,30 @@ extension WMServiceWorker: StoreWorkerDelegate {
             case .success(let data):
                 let storeResponse = ProductListResponse(data: data)
                 completion(.success(result: storeResponse))
+            case .failure(let error):
+                let errorResponse = ServiceResponse(title: "Eror Title", message: error.localizedDescription)
+                completion(.failure(error: errorResponse))
+            }
+        }
+    }
+    
+    func confirmOrder(_ products: [[String : Any]], order_address: String, _ completion: @escaping ConfirmOrderCompletionHandler) {
+        
+        let order: [String: Any] = [
+            "products": products,
+            "delivery_address": order_address
+        ]
+        
+        AF.request(WMAPIEndpoint.makeOrder.path, method: .post, parameters: order, encoding: JSONEncoding.default).response { response in
+            
+            guard self.verifyResponse(response.response) else {
+                completion(.failure(error: ServiceResponse(title: "Error Title", message: "Error Messagge")))
+                return
+            }
+            
+            switch response.result {
+            case .success:
+                completion(.success)
             case .failure(let error):
                 let errorResponse = ServiceResponse(title: "Eror Title", message: error.localizedDescription)
                 completion(.failure(error: errorResponse))

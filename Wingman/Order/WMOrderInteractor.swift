@@ -13,7 +13,7 @@ protocol WMOrderInteractorInput {
 }
 
 protocol WMOrderInteractorOutput {
-    
+    func presentConfirmOrder(response: WMOrderScene.ConfirmOrder.Response)
 }
 
 protocol WMOrderDataSource {
@@ -21,14 +21,21 @@ protocol WMOrderDataSource {
 }
 
 protocol WMOrderDataDestination {
-    
+    var selectProduct: [Product] { get set }
 }
 
 class WMOrderInteractor: WMOrderInteractorInput, WMOrderDataSource, WMOrderDataDestination {
     
     var output: WMOrderInteractorOutput?
+    var selectProduct: [Product] = []
     
     // MARK: Business logic
     
-
+    func confirmOrder(request: WMOrderScene.ConfirmOrder.Request) {
+        let products = self.selectProduct.compactMap { $0.toDictionary }
+        WMServiceWorker().confirmOrder(products, order_address: request.address) { result in
+            let response = WMOrderScene.ConfirmOrder.Response(result: result)
+            self.output?.presentConfirmOrder(response: response)
+        }
+    }
 }
