@@ -41,6 +41,13 @@
 		5ECAD36A2833E69200E4EC18 /* WMOrderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAD3642833E69200E4EC18 /* WMOrderInteractor.swift */; };
 		5ECAD36B2833E69200E4EC18 /* WMOrderConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAD3652833E69200E4EC18 /* WMOrderConfigurator.swift */; };
 		5ECAD36D2833EAF800E4EC18 /* Order.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ECAD36C2833EAF800E4EC18 /* Order.storyboard */; };
+		5ECAD3752833F50800E4EC18 /* WMOrderSuccessPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAD36F2833F50800E4EC18 /* WMOrderSuccessPresenter.swift */; };
+		5ECAD3762833F50800E4EC18 /* WMOrderSuccessRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAD3702833F50800E4EC18 /* WMOrderSuccessRouter.swift */; };
+		5ECAD3772833F50800E4EC18 /* WMOrderSuccessModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAD3712833F50800E4EC18 /* WMOrderSuccessModels.swift */; };
+		5ECAD3782833F50800E4EC18 /* WMOrderSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAD3722833F50800E4EC18 /* WMOrderSuccessViewController.swift */; };
+		5ECAD3792833F50800E4EC18 /* WMOrderSuccessInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAD3732833F50800E4EC18 /* WMOrderSuccessInteractor.swift */; };
+		5ECAD37A2833F50800E4EC18 /* WMOrderSuccessConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAD3742833F50800E4EC18 /* WMOrderSuccessConfigurator.swift */; };
+		5ECAD37D2833F53200E4EC18 /* OrderSuccess.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ECAD37C2833F53200E4EC18 /* OrderSuccess.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +104,13 @@
 		5ECAD3642833E69200E4EC18 /* WMOrderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WMOrderInteractor.swift; sourceTree = "<group>"; };
 		5ECAD3652833E69200E4EC18 /* WMOrderConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WMOrderConfigurator.swift; sourceTree = "<group>"; };
 		5ECAD36C2833EAF800E4EC18 /* Order.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Order.storyboard; sourceTree = "<group>"; };
+		5ECAD36F2833F50800E4EC18 /* WMOrderSuccessPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WMOrderSuccessPresenter.swift; sourceTree = "<group>"; };
+		5ECAD3702833F50800E4EC18 /* WMOrderSuccessRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WMOrderSuccessRouter.swift; sourceTree = "<group>"; };
+		5ECAD3712833F50800E4EC18 /* WMOrderSuccessModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WMOrderSuccessModels.swift; sourceTree = "<group>"; };
+		5ECAD3722833F50800E4EC18 /* WMOrderSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WMOrderSuccessViewController.swift; sourceTree = "<group>"; };
+		5ECAD3732833F50800E4EC18 /* WMOrderSuccessInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WMOrderSuccessInteractor.swift; sourceTree = "<group>"; };
+		5ECAD3742833F50800E4EC18 /* WMOrderSuccessConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WMOrderSuccessConfigurator.swift; sourceTree = "<group>"; };
+		5ECAD37C2833F53200E4EC18 /* OrderSuccess.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderSuccess.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +171,7 @@
 				5ECAD35F2833E67100E4EC18 /* Order */,
 				5ECAD3512832CBD100E4EC18 /* Services */,
 				5E2A09A82832A91400F0963A /* Store */,
+				5ECAD36E2833F4E400E4EC18 /* Success */,
 				5E2A099B2832A8DB00F0963A /* Support Files */,
 			);
 			path = Wingman;
@@ -243,9 +258,39 @@
 				5ECAD3632833E69200E4EC18 /* WMOrderViewController.swift */,
 				5ECAD3642833E69200E4EC18 /* WMOrderInteractor.swift */,
 				5ECAD3652833E69200E4EC18 /* WMOrderConfigurator.swift */,
-				5ECAD36C2833EAF800E4EC18 /* Order.storyboard */,
+				5ECAD37B2833F51400E4EC18 /* View */,
 			);
 			path = Order;
+			sourceTree = "<group>";
+		};
+		5ECAD36E2833F4E400E4EC18 /* Success */ = {
+			isa = PBXGroup;
+			children = (
+				5ECAD36F2833F50800E4EC18 /* WMOrderSuccessPresenter.swift */,
+				5ECAD3702833F50800E4EC18 /* WMOrderSuccessRouter.swift */,
+				5ECAD3712833F50800E4EC18 /* WMOrderSuccessModels.swift */,
+				5ECAD3722833F50800E4EC18 /* WMOrderSuccessViewController.swift */,
+				5ECAD3732833F50800E4EC18 /* WMOrderSuccessInteractor.swift */,
+				5ECAD3742833F50800E4EC18 /* WMOrderSuccessConfigurator.swift */,
+				5ECAD37E2833F62900E4EC18 /* View */,
+			);
+			path = Success;
+			sourceTree = "<group>";
+		};
+		5ECAD37B2833F51400E4EC18 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5ECAD36C2833EAF800E4EC18 /* Order.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5ECAD37E2833F62900E4EC18 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5ECAD37C2833F53200E4EC18 /* OrderSuccess.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -365,6 +410,7 @@
 				5E2A096F2832A16E00F0963A /* Assets.xcassets in Resources */,
 				5ECAD35C2832E83200E4EC18 /* StoreInfoViewCell.xib in Resources */,
 				5E2A096D2832A16A00F0963A /* Main.storyboard in Resources */,
+				5ECAD37D2833F53200E4EC18 /* OrderSuccess.storyboard in Resources */,
 				5ECAD36D2833EAF800E4EC18 /* Order.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,17 +437,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E2A09B82832A9FF00F0963A /* WMStoreConfigurator.swift in Sources */,
+				5ECAD3752833F50800E4EC18 /* WMOrderSuccessPresenter.swift in Sources */,
+				5ECAD37A2833F50800E4EC18 /* WMOrderSuccessConfigurator.swift in Sources */,
 				5ECAD36B2833E69200E4EC18 /* WMOrderConfigurator.swift in Sources */,
 				5ECAD34A2832BA0600E4EC18 /* WMAPIEndpoint.swift in Sources */,
 				5ECAD36A2833E69200E4EC18 /* WMOrderInteractor.swift in Sources */,
 				5E2A09B42832A9FF00F0963A /* WMStoreRouter.swift in Sources */,
+				5ECAD3772833F50800E4EC18 /* WMOrderSuccessModels.swift in Sources */,
 				5ECAD3672833E69200E4EC18 /* WMOrderRouter.swift in Sources */,
+				5ECAD3762833F50800E4EC18 /* WMOrderSuccessRouter.swift in Sources */,
 				5E2A09B32832A9FF00F0963A /* WMStorePresenter.swift in Sources */,
 				5E2A09B62832A9FF00F0963A /* WMStoreViewController.swift in Sources */,
+				5ECAD3782833F50800E4EC18 /* WMOrderSuccessViewController.swift in Sources */,
 				5ECAD3682833E69200E4EC18 /* WMOrderModels.swift in Sources */,
 				5E2A09AB2832A96900F0963A /* WMServiceWorker.swift in Sources */,
 				5ECAD35B2832E83200E4EC18 /* StoreInfoViewCell.swift in Sources */,
 				5ECAD34C2832BCBF00E4EC18 /* WMAppManager.swift in Sources */,
+				5ECAD3792833F50800E4EC18 /* WMOrderSuccessInteractor.swift in Sources */,
 				5E2A09B52832A9FF00F0963A /* WMStoreModels.swift in Sources */,
 				5ECAD3572832DDE900E4EC18 /* ProductViewCell.swift in Sources */,
 				5E2A09B72832A9FF00F0963A /* WMStoreInteractor.swift in Sources */,

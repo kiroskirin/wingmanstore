@@ -36,7 +36,11 @@ class WMOrderRouter: WMOrderRouterInput {
     
     // MARK: Navigation
     func navigateToOrderSuccess() {
+        guard let vc: WMOrderSuccessViewController = UIStoryboard(name: "OrderSuccess", bundle: nil).instantiateViewController(withIdentifier: "WMOrderSuccessViewController") as? WMOrderSuccessViewController else {
+            return
+        }
         
+        self.viewController.navigationController?.pushViewController(vc, animated: true)
     }
     
     // MARK: Communication

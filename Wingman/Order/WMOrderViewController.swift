@@ -35,6 +35,7 @@ class WMOrderViewController: UIViewController, WMOrderViewControllerInput {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.requestConfirmOrder()
     }
     
     // MARK: Actions
