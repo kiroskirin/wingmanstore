@@ -52,17 +52,17 @@ class WMStoreViewController: UIViewController, WMStoreViewControllerInput {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.group = DispatchGroup()
+        self.getAllData()
+    }
         
-        SVProgressHUD.show()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        self.getStoreData()
-        self.getProductList()
+        guard !self.productDataSource.isEmpty && WMOrderManager.shared.listOrders.isEmpty else {
+            return
+        }
         
-        self.group?.notify(queue: .main, execute: {
-            SVProgressHUD.dismiss()
-            self.tableView.reloadData()
-        })
+        self.tableView.reloadSections([WMStoreSection.productList.rawValue], with: .automatic)
     }
     
     private func configTableView() {
@@ -78,6 +78,20 @@ class WMStoreViewController: UIViewController, WMStoreViewControllerInput {
     
     // MARK: Requests
     
+    func getAllData() {
+        self.group = DispatchGroup()
+        
+        SVProgressHUD.show()
+        
+        self.getStoreData()
+        self.getProductList()
+        
+        self.group?.notify(queue: .main, execute: {
+            SVProgressHUD.dismiss()
+            self.tableView.reloadData()
+        })
+    }
+    
     func getStoreData() {
         self.group?.enter()
         let request = WMStoreScene.GetStore.Request()
@@ -92,6 +106,12 @@ class WMStoreViewController: UIViewController, WMStoreViewControllerInput {
     
     // MARK: Actions
     @IBAction func doCheckout(_ sender: UIButton) {
+        
+        guard !WMOrderManager.shared.listOrders.isEmpty else {
+            print("---no orders---")
+            return
+        }
+        
         self.router?.navigateToOrder()
     }
     
@@ -153,11 +173,24 @@ extension WMStoreViewController: UITableViewDataSource {
             }
             
             cell.setProductInfo(self.productDataSource[indexPath.row])
+            cell.delegate = self
             return cell
             
         default:
             return UITableViewCell()
         }
+    }
+}
+
+extension WMStoreViewController: ProductViewCellDelegate {
+    func doAddProduct(_ product: Product?, quantity: Int) {
+        let orderItem = OrderItem(product: product, quantity: quantity)
+        WMOrderManager.shared.addItemToOrder(orderItem)
+    }
+    
+    func doRemoveProduct(_ product: Product?, quantity: Int) {
+        let orderItem = OrderItem(product: product, quantity: quantity)
+        WMOrderManager.shared.addItemToOrder(orderItem)
     }
 }
 

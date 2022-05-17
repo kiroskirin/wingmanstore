@@ -60,6 +60,9 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="-"/>
+                                        <connections>
+                                            <action selector="doMinus:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="pJv-1d-NWB"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvo-f4-uif">
                                         <rect key="frame" x="48" y="6" width="10" height="18"/>
@@ -75,6 +78,9 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="+"/>
+                                        <connections>
+                                            <action selector="doPlus:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="GP6-6K-2Do"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -94,6 +100,7 @@
                 <outlet property="productImage" destination="PeN-pi-3R9" id="YbN-kw-LJX"/>
                 <outlet property="productName" destination="ujH-IT-Yiu" id="q6G-CZ-kPE"/>
                 <outlet property="productPrice" destination="AtE-9x-Nn0" id="Hkc-X3-X3X"/>
+                <outlet property="quantity" destination="uvo-f4-uif" id="QSz-gg-XII"/>
             </connections>
             <point key="canvasLocation" x="260" y="171"/>
         </tableViewCell>

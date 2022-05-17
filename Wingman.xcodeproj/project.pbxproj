@@ -48,6 +48,13 @@
 		5ECAD3792833F50800E4EC18 /* WMOrderSuccessInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAD3732833F50800E4EC18 /* WMOrderSuccessInteractor.swift */; };
 		5ECAD37A2833F50800E4EC18 /* WMOrderSuccessConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAD3742833F50800E4EC18 /* WMOrderSuccessConfigurator.swift */; };
 		5ECAD37D2833F53200E4EC18 /* OrderSuccess.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ECAD37C2833F53200E4EC18 /* OrderSuccess.storyboard */; };
+		5ECAD381283403E500E4EC18 /* WMOrderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAD380283403E500E4EC18 /* WMOrderManager.swift */; };
+		5ECAD38528341A7200E4EC18 /* OrderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAD38328341A7200E4EC18 /* OrderViewCell.swift */; };
+		5ECAD38628341A7200E4EC18 /* OrderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ECAD38428341A7200E4EC18 /* OrderViewCell.xib */; };
+		5ECAD3892834211500E4EC18 /* OrderTotalViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAD3872834211500E4EC18 /* OrderTotalViewCell.swift */; };
+		5ECAD38A2834211500E4EC18 /* OrderTotalViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ECAD3882834211500E4EC18 /* OrderTotalViewCell.xib */; };
+		5ECAD38D2834253700E4EC18 /* OrderAddressViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAD38B2834253700E4EC18 /* OrderAddressViewCell.swift */; };
+		5ECAD38E2834253700E4EC18 /* OrderAddressViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ECAD38C2834253700E4EC18 /* OrderAddressViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +118,13 @@
 		5ECAD3732833F50800E4EC18 /* WMOrderSuccessInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WMOrderSuccessInteractor.swift; sourceTree = "<group>"; };
 		5ECAD3742833F50800E4EC18 /* WMOrderSuccessConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WMOrderSuccessConfigurator.swift; sourceTree = "<group>"; };
 		5ECAD37C2833F53200E4EC18 /* OrderSuccess.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderSuccess.storyboard; sourceTree = "<group>"; };
+		5ECAD380283403E500E4EC18 /* WMOrderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WMOrderManager.swift; sourceTree = "<group>"; };
+		5ECAD38328341A7200E4EC18 /* OrderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewCell.swift; sourceTree = "<group>"; };
+		5ECAD38428341A7200E4EC18 /* OrderViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderViewCell.xib; sourceTree = "<group>"; };
+		5ECAD3872834211500E4EC18 /* OrderTotalViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTotalViewCell.swift; sourceTree = "<group>"; };
+		5ECAD3882834211500E4EC18 /* OrderTotalViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderTotalViewCell.xib; sourceTree = "<group>"; };
+		5ECAD38B2834253700E4EC18 /* OrderAddressViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderAddressViewCell.swift; sourceTree = "<group>"; };
+		5ECAD38C2834253700E4EC18 /* OrderAddressViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderAddressViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +182,7 @@
 				5ECAD3522832D3E500E4EC18 /* WMExtensionString.swift */,
 				5ECAD34D2832BDD700E4EC18 /* WMViewProtocol.swift */,
 				5E2A096E2832A16E00F0963A /* Assets.xcassets */,
+				5ECAD37F283403CD00E4EC18 /* Manager */,
 				5ECAD35F2833E67100E4EC18 /* Order */,
 				5ECAD3512832CBD100E4EC18 /* Services */,
 				5E2A09A82832A91400F0963A /* Store */,
@@ -280,6 +295,7 @@
 		5ECAD37B2833F51400E4EC18 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5ECAD38228341A5B00E4EC18 /* Cells */,
 				5ECAD36C2833EAF800E4EC18 /* Order.storyboard */,
 			);
 			path = View;
@@ -291,6 +307,27 @@
 				5ECAD37C2833F53200E4EC18 /* OrderSuccess.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		5ECAD37F283403CD00E4EC18 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				5ECAD380283403E500E4EC18 /* WMOrderManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		5ECAD38228341A5B00E4EC18 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5ECAD38328341A7200E4EC18 /* OrderViewCell.swift */,
+				5ECAD38428341A7200E4EC18 /* OrderViewCell.xib */,
+				5ECAD3872834211500E4EC18 /* OrderTotalViewCell.swift */,
+				5ECAD3882834211500E4EC18 /* OrderTotalViewCell.xib */,
+				5ECAD38B2834253700E4EC18 /* OrderAddressViewCell.swift */,
+				5ECAD38C2834253700E4EC18 /* OrderAddressViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,9 +443,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5ECAD3582832DDE900E4EC18 /* ProductViewCell.xib in Resources */,
+				5ECAD38628341A7200E4EC18 /* OrderViewCell.xib in Resources */,
+				5ECAD38A2834211500E4EC18 /* OrderTotalViewCell.xib in Resources */,
 				5E2A09722832A16E00F0963A /* LaunchScreen.storyboard in Resources */,
 				5E2A096F2832A16E00F0963A /* Assets.xcassets in Resources */,
 				5ECAD35C2832E83200E4EC18 /* StoreInfoViewCell.xib in Resources */,
+				5ECAD38E2834253700E4EC18 /* OrderAddressViewCell.xib in Resources */,
 				5E2A096D2832A16A00F0963A /* Main.storyboard in Resources */,
 				5ECAD37D2833F53200E4EC18 /* OrderSuccess.storyboard in Resources */,
 				5ECAD36D2833EAF800E4EC18 /* Order.storyboard in Resources */,
@@ -443,6 +483,7 @@
 				5ECAD34A2832BA0600E4EC18 /* WMAPIEndpoint.swift in Sources */,
 				5ECAD36A2833E69200E4EC18 /* WMOrderInteractor.swift in Sources */,
 				5E2A09B42832A9FF00F0963A /* WMStoreRouter.swift in Sources */,
+				5ECAD3892834211500E4EC18 /* OrderTotalViewCell.swift in Sources */,
 				5ECAD3772833F50800E4EC18 /* WMOrderSuccessModels.swift in Sources */,
 				5ECAD3672833E69200E4EC18 /* WMOrderRouter.swift in Sources */,
 				5ECAD3762833F50800E4EC18 /* WMOrderSuccessRouter.swift in Sources */,
@@ -453,13 +494,16 @@
 				5E2A09AB2832A96900F0963A /* WMServiceWorker.swift in Sources */,
 				5ECAD35B2832E83200E4EC18 /* StoreInfoViewCell.swift in Sources */,
 				5ECAD34C2832BCBF00E4EC18 /* WMAppManager.swift in Sources */,
+				5ECAD38D2834253700E4EC18 /* OrderAddressViewCell.swift in Sources */,
 				5ECAD3792833F50800E4EC18 /* WMOrderSuccessInteractor.swift in Sources */,
 				5E2A09B52832A9FF00F0963A /* WMStoreModels.swift in Sources */,
 				5ECAD3572832DDE900E4EC18 /* ProductViewCell.swift in Sources */,
 				5E2A09B72832A9FF00F0963A /* WMStoreInteractor.swift in Sources */,
+				5ECAD38528341A7200E4EC18 /* OrderViewCell.swift in Sources */,
 				5ECAD3692833E69200E4EC18 /* WMOrderViewController.swift in Sources */,
 				5ECAD3482832B76300E4EC18 /* WMStoreResponse.swift in Sources */,
 				5ECAD34E2832BDD700E4EC18 /* WMViewProtocol.swift in Sources */,
+				5ECAD381283403E500E4EC18 /* WMOrderManager.swift in Sources */,
 				5ECAD3502832C89700E4EC18 /* WMStatusCode.swift in Sources */,
 				5ECAD3662833E69200E4EC18 /* WMOrderPresenter.swift in Sources */,
 				5ECAD3532832D3E500E4EC18 /* WMExtensionString.swift in Sources */,

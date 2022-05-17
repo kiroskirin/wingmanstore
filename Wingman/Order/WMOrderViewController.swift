@@ -9,6 +9,7 @@
 //  https://github.com/HelmMobile/clean-swift-templates
 
 import UIKit
+import SVProgressHUD
 
 protocol WMOrderViewControllerInput {
     
@@ -18,10 +19,24 @@ protocol WMOrderViewControllerOutput {
     func confirmOrder(request: WMOrderScene.ConfirmOrder.Request)
 }
 
+enum WMOrderSection: Int, CaseIterable {
+    case orderItems = 0
+    case sumTotal
+    case address
+}
+
 class WMOrderViewController: UIViewController, WMOrderViewControllerInput {
+    
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            self.configTableView()
+        }
+    }
     
     var output: WMOrderViewControllerOutput?
     var router: WMOrderRouter?
+    
+    private var orderAddress: String?
     
     // MARK: Object lifecycle
     
@@ -35,7 +50,24 @@ class WMOrderViewController: UIViewController, WMOrderViewControllerInput {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.requestConfirmOrder()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.tableView.reloadData()
+    }
+    
+    private func configTableView() {
+        self.tableView.register(OrderViewCell.nib, forCellReuseIdentifier: OrderViewCell.identifier)
+        self.tableView.register(OrderTotalViewCell.nib, forCellReuseIdentifier: OrderTotalViewCell.identifier)
+        self.tableView.register(OrderAddressViewCell.nib, forCellReuseIdentifier: OrderAddressViewCell.identifier)
+
+        self.tableView.dataSource = self
+        
+        self.tableView.estimatedRowHeight = 145
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.tableFooterView = UIView()
     }
     
     // MARK: Actions
@@ -45,12 +77,21 @@ class WMOrderViewController: UIViewController, WMOrderViewControllerInput {
     
     // MARK: Requests
     func requestConfirmOrder() {
-        let request = WMOrderScene.ConfirmOrder.Request(address: "abc")
+        guard let address = self.orderAddress?.trimmingCharacters(in: .whitespacesAndNewlines), !address.isEmpty else {
+            print("---please enter address--")
+            return
+        }
+        
+        SVProgressHUD.show()
+        
+        let request = WMOrderScene.ConfirmOrder.Request(address: address)
         self.output?.confirmOrder(request: request)
     }
     
     // MARK: Display logic
     func displayConfirmOrder(viewModel: WMOrderScene.ConfirmOrder.ViewModel) {
+        SVProgressHUD.dismiss()
+        
         switch viewModel.status {
         case .success:
             self.router?.navigateToOrderSuccess()
@@ -60,6 +101,68 @@ class WMOrderViewController: UIViewController, WMOrderViewControllerInput {
         }
     }
 }
+
+extension WMOrderViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return WMOrderSection.allCases.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch WMOrderSection(rawValue: section) {
+        case .orderItems:
+            return self.router?.dataDestination.orderItems.count ?? 0
+        case .sumTotal: return 1
+        case .address: return 1
+        default: return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch WMOrderSection(rawValue: indexPath.section) {
+        case .orderItems:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: OrderViewCell.identifier, for: indexPath) as? OrderViewCell else {
+                return UITableViewCell()
+            }
+            
+            if let item = self.router?.dataDestination.orderItems[indexPath.row] {
+                cell.setOrderItemInfo(item)
+            }
+            
+            return cell
+        case .sumTotal:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: OrderTotalViewCell.identifier, for: indexPath) as? OrderTotalViewCell else {
+                return UITableViewCell()
+            }
+            cell.sumTotal.text = "฿ \(WMOrderManager.shared.sumTotalPrice)"
+            return cell
+            
+        case .address:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: OrderAddressViewCell.identifier, for: indexPath) as? OrderAddressViewCell else {
+                return UITableViewCell()
+            }
+            
+            cell.addressTextField.delegate = self
+            
+            return cell
+            
+        default:
+            return UITableViewCell()
+        }
+    }
+}
+
+extension WMOrderViewController: UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.orderAddress = textField.text
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
 
 //This should be on configurator but for some reason storyboard doesn't detect ViewController's name if placed there
 extension WMOrderViewController: WMOrderPresenterOutput {

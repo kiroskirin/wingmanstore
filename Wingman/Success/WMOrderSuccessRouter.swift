@@ -37,6 +37,7 @@ class WMOrderSuccessRouter: WMOrderSuccessRouterInput {
     // MARK: Navigation
     func navigateBackToStore() {
         self.viewController.navigationController?.popToRootViewController(animated: true)
+        WMOrderManager.shared.clearOrder()
     }
     
     // MARK: Communication

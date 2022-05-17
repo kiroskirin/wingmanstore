@@ -19,7 +19,7 @@ protocol WMOrderRouterDataSource: AnyObject {
 }
 
 protocol WMOrderRouterDataDestination: AnyObject {
-    var selectProduct: [Product] { get set }
+    var orderItems: [OrderItem] { get set }
 }
 
 class WMOrderRouter: WMOrderRouterInput {

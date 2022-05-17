@@ -21,18 +21,18 @@ protocol WMOrderDataSource {
 }
 
 protocol WMOrderDataDestination {
-    var selectProduct: [Product] { get set }
+    var orderItems: [OrderItem] { get set }
 }
 
 class WMOrderInteractor: WMOrderInteractorInput, WMOrderDataSource, WMOrderDataDestination {
     
     var output: WMOrderInteractorOutput?
-    var selectProduct: [Product] = []
+    var orderItems: [OrderItem] = []
     
     // MARK: Business logic
     
     func confirmOrder(request: WMOrderScene.ConfirmOrder.Request) {
-        let products = self.selectProduct.compactMap { $0.toDictionary }
+        let products = self.orderItems.compactMap { $0.product.toDictionary }
         WMServiceWorker().confirmOrder(products, order_address: request.address) { result in
             let response = WMOrderScene.ConfirmOrder.Response(result: result)
             self.output?.presentConfirmOrder(response: response)
