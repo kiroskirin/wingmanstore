@@ -39,7 +39,7 @@ class ProductViewCell: UITableViewCell, BaseViewCell {
         }
         
         self.productName.text = product?.name ?? "N/A"
-        self.productPrice.text = "\(product?.price ?? 0)"
+        self.productPrice.text = "฿ \(product?.price ?? 0)"
     }
     
 }

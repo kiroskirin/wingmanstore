@@ -25,7 +25,7 @@ extension AppDelegate {
     func initApp() {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = .white
-        window?.rootViewController = WMAppManager.shared.tabBar()
+        window?.rootViewController = WMAppManager.shared.storeView()
         window?.makeKeyAndVisible()
     }
 }
