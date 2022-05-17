@@ -129,6 +129,7 @@ extension WMOrderViewController: UITableViewDataSource {
             }
             
             return cell
+            
         case .sumTotal:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: OrderTotalViewCell.identifier, for: indexPath) as? OrderTotalViewCell else {
                 return UITableViewCell()

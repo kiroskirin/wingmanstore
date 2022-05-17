@@ -23,6 +23,7 @@
 		5E2A09B62832A9FF00F0963A /* WMStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2A09B02832A9FF00F0963A /* WMStoreViewController.swift */; };
 		5E2A09B72832A9FF00F0963A /* WMStoreInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2A09B12832A9FF00F0963A /* WMStoreInteractor.swift */; };
 		5E2A09B82832A9FF00F0963A /* WMStoreConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2A09B22832A9FF00F0963A /* WMStoreConfigurator.swift */; };
+		5EA7C3872834302A008D165B /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5EA7C3862834302A008D165B /* IQKeyboardManagerSwift */; };
 		5ECAD3482832B76300E4EC18 /* WMStoreResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAD3472832B76300E4EC18 /* WMStoreResponse.swift */; };
 		5ECAD34A2832BA0600E4EC18 /* WMAPIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAD3492832BA0600E4EC18 /* WMAPIEndpoint.swift */; };
 		5ECAD34C2832BCBF00E4EC18 /* WMAppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAD34B2832BCBF00E4EC18 /* WMAppManager.swift */; };
@@ -134,6 +135,7 @@
 			files = (
 				5E2A099A2832A62F00F0963A /* SVProgressHUD in Frameworks */,
 				5E2A09972832A61000F0963A /* Alamofire in Frameworks */,
+				5EA7C3872834302A008D165B /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +351,7 @@
 			packageProductDependencies = (
 				5E2A09962832A61000F0963A /* Alamofire */,
 				5E2A09992832A62F00F0963A /* SVProgressHUD */,
+				5EA7C3862834302A008D165B /* IQKeyboardManagerSwift */,
 			);
 			productName = Wingman;
 			productReference = 5E2A09622832A16900F0963A /* Wingman.app */;
@@ -425,6 +428,7 @@
 			packageReferences = (
 				5E2A09952832A61000F0963A /* XCRemoteSwiftPackageReference "Alamofire" */,
 				5E2A09982832A62F00F0963A /* XCRemoteSwiftPackageReference "SVProgressHUD" */,
+				5EA7C3852834302A008D165B /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = 5E2A09632832A16900F0963A /* Products */;
 			projectDirPath = "";
@@ -864,6 +868,14 @@
 				kind = branch;
 			};
 		};
+		5EA7C3852834302A008D165B /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -876,6 +888,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5E2A09982832A62F00F0963A /* XCRemoteSwiftPackageReference "SVProgressHUD" */;
 			productName = SVProgressHUD;
+		};
+		5EA7C3862834302A008D165B /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5EA7C3852834302A008D165B /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

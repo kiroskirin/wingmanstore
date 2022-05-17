@@ -32,11 +32,10 @@ class OrderViewCell: UITableViewCell, BaseViewCell {
     func setOrderItemInfo(_ orderItem: OrderItem) {
         if let url = orderItem.product?.imageURL {
             self.productImage.image = nil
-            AF.request(url).responseData { response in
-                switch response.result {
-                case .success(let data):
+            
+            AF.download(url).responseData { response in
+                if let data = response.value {
                     self.productImage.image = UIImage(data: data)
-                default: break
                 }
             }
         }

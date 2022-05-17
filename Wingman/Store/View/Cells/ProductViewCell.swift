@@ -48,11 +48,10 @@ class ProductViewCell: UITableViewCell, BaseViewCell {
         self.product = product
         
         if let url = product?.imageURL {
-            AF.request(url).responseData { response in
-                switch response.result {
-                case .success(let data):
+            self.productImage.image = nil
+            AF.download(url).responseData { response in
+                if let data = response.value {
                     self.productImage.image = UIImage(data: data)
-                default: break
                 }
             }
         }
