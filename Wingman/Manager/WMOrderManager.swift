@@ -39,8 +39,11 @@ extension WMOrderManager {
     
     var sumTotalPrice: Int {
         let sum = self.listOrders.reduce(0) {
-            $0 + ($1.product?.price ?? 0 * $1.quantity)
+            let price = $1.product?.price ?? 0
+            let quantity = $1.quantity
+            return $0 + (price * quantity)
         }
+        
         return sum
     }
 }
