@@ -38,25 +38,25 @@ struct StoreInfo: Codable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
         do {
-            self.name = try values.decodeIfPresent(String.self, forKey: .name)
+            self.name = try values.decode(String.self, forKey: .name)
         } catch {
             self.name = nil
         }
         
         do {
-            self.rating = try values.decodeIfPresent(Double.self, forKey: .rating)
+            self.rating = try values.decode(Double.self, forKey: .rating)
         } catch {
             self.rating = 0.0
         }
         
         do {
-            self.openingTime = try values.decodeIfPresent(String.self, forKey: .openingTime)
+            self.openingTime = try values.decode(String.self, forKey: .openingTime)
         } catch {
             self.openingTime = nil
         }
         
         do {
-            self.closingTime = try values.decodeIfPresent(String.self, forKey: .closingTime)
+            self.closingTime = try values.decode(String.self, forKey: .closingTime)
         } catch {
             self.closingTime = nil
         }
@@ -80,19 +80,19 @@ struct Product: Codable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
         do {
-            self.name = try values.decodeIfPresent(String.self, forKey: .name)
+            self.name = try values.decode(String.self, forKey: .name)
         } catch {
             self.name = nil
         }
         
         do {
-            self.price = try values.decodeIfPresent(Int.self, forKey: .price)
+            self.price = try values.decode(Int.self, forKey: .price)
         } catch {
             self.price = 0
         }
         
         do {
-            self.imageURL = try values.decodeIfPresent(URL.self, forKey: .imageURL)
+            self.imageURL = try values.decode(URL.self, forKey: .imageURL)
         } catch {
             self.imageURL = nil
         }

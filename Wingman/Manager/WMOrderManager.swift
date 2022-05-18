@@ -35,7 +35,7 @@ class WMOrderManager {
 
 extension WMOrderManager {
     var listOrders: [OrderItem] {
-        return self.orders.filter { $0.quantity > 0 }
+        return self.orders.filter { $0.product != nil }
     }
     
     var sumTotalPrice: Int {

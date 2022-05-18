@@ -23,6 +23,7 @@
 		5E2A09B62832A9FF00F0963A /* WMStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2A09B02832A9FF00F0963A /* WMStoreViewController.swift */; };
 		5E2A09B72832A9FF00F0963A /* WMStoreInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2A09B12832A9FF00F0963A /* WMStoreInteractor.swift */; };
 		5E2A09B82832A9FF00F0963A /* WMStoreConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2A09B22832A9FF00F0963A /* WMStoreConfigurator.swift */; };
+		5E300A5028354A17009B0B97 /* OrderManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E300A4F28354A17009B0B97 /* OrderManagerTests.swift */; };
 		5EA7C3872834302A008D165B /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5EA7C3862834302A008D165B /* IQKeyboardManagerSwift */; };
 		5EA7C38928343797008D165B /* WMExtensionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA7C38828343797008D165B /* WMExtensionUIViewController.swift */; };
 		5ECAD3482832B76300E4EC18 /* WMStoreResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAD3472832B76300E4EC18 /* WMStoreResponse.swift */; };
@@ -95,6 +96,7 @@
 		5E2A09B02832A9FF00F0963A /* WMStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WMStoreViewController.swift; sourceTree = "<group>"; };
 		5E2A09B12832A9FF00F0963A /* WMStoreInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WMStoreInteractor.swift; sourceTree = "<group>"; };
 		5E2A09B22832A9FF00F0963A /* WMStoreConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WMStoreConfigurator.swift; sourceTree = "<group>"; };
+		5E300A4F28354A17009B0B97 /* OrderManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderManagerTests.swift; sourceTree = "<group>"; };
 		5EA7C38828343797008D165B /* WMExtensionUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WMExtensionUIViewController.swift; sourceTree = "<group>"; };
 		5ECAD3472832B76300E4EC18 /* WMStoreResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WMStoreResponse.swift; sourceTree = "<group>"; };
 		5ECAD3492832BA0600E4EC18 /* WMAPIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WMAPIEndpoint.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 			children = (
 				5E2A097C2832A16F00F0963A /* WingmanTests.swift */,
 				5ECAD35D2832ED7100E4EC18 /* StoreModelTests.swift */,
+				5E300A4F28354A17009B0B97 /* OrderManagerTests.swift */,
 			);
 			path = WingmanTests;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E300A5028354A17009B0B97 /* OrderManagerTests.swift in Sources */,
 				5E2A097D2832A16F00F0963A /* WingmanTests.swift in Sources */,
 				5ECAD35E2832ED7100E4EC18 /* StoreModelTests.swift in Sources */,
 			);
