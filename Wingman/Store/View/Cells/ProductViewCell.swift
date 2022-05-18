@@ -10,7 +10,6 @@ import Alamofire
 
 protocol ProductViewCellDelegate: AnyObject {
     func doAddProduct(_ product: Product?, quantity: Int)
-    func doRemoveProduct(_ product: Product?, quantity: Int)
 }
 
 class ProductViewCell: UITableViewCell, BaseViewCell {
@@ -66,7 +65,7 @@ class ProductViewCell: UITableViewCell, BaseViewCell {
         }
         
         self.currentQuantity = self.currentQuantity - 1
-        self.delegate?.doRemoveProduct(self.product, quantity: self.currentQuantity)
+        self.delegate?.doAddProduct(self.product, quantity: self.currentQuantity)
     }
     
     @IBAction func doPlus(_ sender: UIButton) {

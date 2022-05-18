@@ -14,6 +14,7 @@ class WMOrderManager {
     
     func addItemToOrder(_ item: OrderItem) {
         self.removeItemFromOrder(item)
+        guard item.quantity > 0 else { return }
         self.orders.append(item)
     }
     
@@ -47,6 +48,8 @@ extension WMOrderManager {
         return sum
     }
 }
+
+// MARK: Order Item
 
 struct OrderItem {
     let product: Product?

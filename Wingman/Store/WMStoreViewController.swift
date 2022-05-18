@@ -201,11 +201,6 @@ extension WMStoreViewController: ProductViewCellDelegate {
         let orderItem = OrderItem(product: product, quantity: quantity)
         WMOrderManager.shared.addItemToOrder(orderItem)
     }
-    
-    func doRemoveProduct(_ product: Product?, quantity: Int) {
-        let orderItem = OrderItem(product: product, quantity: quantity)
-        WMOrderManager.shared.addItemToOrder(orderItem)
-    }
 }
 
 //This should be on configurator but for some reason storyboard doesn't detect ViewController's name if placed there

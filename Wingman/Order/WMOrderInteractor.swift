@@ -32,7 +32,12 @@ class WMOrderInteractor: WMOrderInteractorInput, WMOrderDataSource, WMOrderDataD
     // MARK: Business logic
     
     func confirmOrder(request: WMOrderScene.ConfirmOrder.Request) {
-        let products = self.orderItems.compactMap { $0.product.toDictionary }
+        let products = self.orderItems.compactMap { item -> [String: Any]? in
+            var product = item.product.toDictionary
+            product?["quantity"] = item.quantity
+            return product
+        }
+        
         WMServiceWorker().confirmOrder(products, order_address: request.address) { result in
             let response = WMOrderScene.ConfirmOrder.Response(result: result)
             self.output?.presentConfirmOrder(response: response)
